@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; min-height: 15.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;script&gt;var __pbpa = true;&lt;/script&gt;&lt;script&gt;var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';&lt;/script&gt;&lt;script type="text/javascript" language="javascript" src="http://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=66ac555bc5745ebe20abdae7cbc40704"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;!doctype HTML&gt;</p>
+<p class="p1">&lt;link rel="shortcut icon" href="http://sv.tinypic.com?ref=qq68e9"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;meta http-equiv="Content-Style-Type" content="text/css"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;meta http-equiv="Content-Script-Type" content="text/javascript"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;script type="text/javascript"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;!--</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var namMember = new Array(</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">"Pomu Rainpuff",</p>
+<p class="p1">"Elira Pendora",</p>
+<p class="p1">"Finana Ryugu",</p>
+<p class="p1">"Rosemi Lovelock",</p>
+<p class="p1">"Petra Gurin",</p>
+<p class="p1">"Selen Tatsuki",</p>
+<p class="p1">"Nina Kosaka",</p>
+<p class="p1">"Millie Parfait",</p>
+<p class="p1">"Enna Alouette",</p>
+<p class="p1">"Reimu Endou",</p>
+<p class="p1">"Luca Kaneshiro",</p>
+<p class="p1">"Shu Yamino",</p>
+<p class="p1">"Ike Eveland",</p>
+<p class="p1">"Mysta Rias",</p>
+<p class="p1">"Vox Akuma",</p>
+<p class="p1">"Sonny Brisko",</p>
+<p class="p1">"Uki Violeta",</p>
+<p class="p1">"Alban Knox",</p>
+<p class="p1">"Fulgur Ovid",</p>
+<p class="p1">"Yugo Asuma",</p>
+<p class="p1">"Maria Marionette",</p>
+<p class="p1">"Kyo Kaneko",</p>
+<p class="p1">"Aia Amare",</p>
+<p class="p1">"Aster Arcadia",</p>
+<p class="p1">"Scarle Yonaguni",</p>
+<p class="p1">"Ren Zotto"</p>
+<p class="p2"><br></p>
+<p class="p1">);</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//*********************************************************</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var lstMember = new Array();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var parent = new Array();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var equal = new Array();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var rec = new Array();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var cmp1,cmp2;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var head1,head2;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var nrec;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var numQuestion;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var totalSize;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var finishSize;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var finishFlag;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//The initialization of the variable+++++++++++++++++++++++++++++++++++++++++++++</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">function initList(){</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var n = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var mid;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var i;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//The sequence that you should sort</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember[n] = new Array();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">for (i=0; i&lt;namMember.length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember[n][i] = i;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">parent[n] = -1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">totalSize = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">n++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">for (i=0; i&lt;lstMember.length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//And element divides it in two/more than two</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Increase divided sequence of last in first member</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if(lstMember[i].length&gt;=2) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">mid = Math.ceil(lstMember[i].length/2);</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember[n] = new Array();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember[n] = lstMember[i].slice(0,mid);</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">totalSize += lstMember[n].length;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">parent[n] = i;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">n++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember[n] = new Array();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember[n] = lstMember[i].slice(mid,lstMember[i].length);</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">totalSize += lstMember[n].length;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">parent[n] = i;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">n++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Preserve this sequence</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">for (i=0; i&lt;namMember.length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[i] = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//List that keeps your results</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Value of link initial</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">// Value of link initial</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">for (i=0; i&lt;=namMember.length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">equal[i] = -1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">cmp1 = lstMember.length-2;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">cmp2 = lstMember.length-1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head1 = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head2 = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">numQuestion = 1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishFlag = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//&amp;#12522;&amp;#12473;&amp;#12488;&amp;#12398;&amp;#12477;&amp;#12540;&amp;#12488;+++++++++++++++++++++++++++++++++++++++++++</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//flag&amp;#65306;Don't know characters</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">// -1&amp;#65306;Chose the left</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">// 0&amp;#65306;Tie</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">// 1&amp;#65306;Chose the right</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">function sortList(flag){</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var i;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var str;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//rec preservation</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if (flag&lt;0) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp1][head1];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head1++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">while (equal[rec[nrec-1]]!=-1) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp1][head1];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head1++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">else if (flag&gt;0) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp2][head2];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head2++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">while (equal[rec[nrec-1]]!=-1) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp2][head2];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head2++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">else {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp1][head1];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head1++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">while (equal[rec[nrec-1]]!=-1) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp1][head1];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head1++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">equal[rec[nrec-1]] = lstMember[cmp2][head2];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp2][head2];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head2++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">while (equal[rec[nrec-1]]!=-1) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp2][head2];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head2++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Processing after finishing with one list</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if (head1&lt;lstMember[cmp1].length &amp;&amp; head2==lstMember[cmp2].length) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//List the remainder of cmp2 copies, list cmp1 copies when finished scanning</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">while (head1&lt;lstMember[cmp1].length){</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp1][head1];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head1++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">else if (head1==lstMember[cmp1].length &amp;&amp; head2&lt;lstMember[cmp2].length) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//List the remainder of cmp1 copies, list cmp2 copies when finished scanning</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">while (head2&lt;lstMember[cmp2].length){</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[nrec] = lstMember[cmp2][head2];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head2++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishSize++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//When it arrives at the end of both lists</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Update a pro list</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if (head1==lstMember[cmp1].length &amp;&amp; head2==lstMember[cmp2].length) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">for (i=0; i&lt;lstMember[cmp1].length+lstMember[cmp2].length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember[parent[cmp1]][i] = rec[i];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember.pop();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">lstMember.pop();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">cmp1 = cmp1-2;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">cmp2 = cmp2-2;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head1 = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">head2 = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Initialize the rec before performing the new comparison</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if (head1==0 &amp;&amp; head2==0) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">for (i=0; i&lt;namMember.length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">rec[i] = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">nrec = 0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if (cmp1&lt;0) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">str = "battle #"+(numQuestion-1)+"&lt;br&gt;"+Math.floor(finishSize*100/totalSize)+"% sorted.";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">document.getElementById("battleNumber").innerHTML = str;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">showResult();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">finishFlag = 1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">else {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">showImage();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//The results+++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//&amp;#38918;&amp;#20301;=Rank/Grade/Position/Standing/Status</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//&amp;#21517;&amp;#21069;=Identification term</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">function showResult() {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var ranking = 1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var sameRank = 1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var str = "";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var i;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">str += "&lt;table style=\"width:200px; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\"&gt;";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">str += "&lt;tr&gt;&lt;td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\"&gt;rank&lt;\/td&gt;&lt;td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\"&gt;options&lt;\/td&gt;&lt;\/tr&gt;";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">for (i=0; i&lt;namMember.length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">str += "&lt;tr&gt;&lt;td style=\"border:1px solid #000; text-align:center; padding-right:5px;\"&gt;"+ranking+"&lt;\/td&gt;&lt;td style=\"border:1px solid #000; padding-left:5px;\"&gt;"+namMember[lstMember[0][i]]+"&lt;\/td&gt;&lt;\/tr&gt;";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if (i&lt;namMember.length-1) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">if (equal[lstMember[0][i]]==lstMember[0][i+1]) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">sameRank++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">} else {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">ranking += sameRank;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">sameRank = 1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">str += "&lt;\/table&gt;";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">document.getElementById("resultField").innerHTML = str;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Indicates two elements to compare+++++++++++++++++++++++++++++++++++</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">function showImage() {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var str0 = "battle #"+numQuestion+"&lt;br&gt;"+Math.floor(finishSize*100/totalSize)+"% sorted.";</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var str1 = ""+toNameFace(lstMember[cmp1][head1]);</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var str2 = ""+toNameFace(lstMember[cmp2][head2]);</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">document.getElementById("battleNumber").innerHTML = str0;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">document.getElementById("leftField").innerHTML = str1;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">document.getElementById("rightField").innerHTML = str2;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">numQuestion++;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//Convert numeric value into a name (emoticon)+++++++++++++++++++++++++++++++</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">function toNameFace(n){</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">var str = namMember[n];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">/*</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">str += '&lt;br /&gt;';</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">switch(n) {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//case -1 Because it is a sample, delete it</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">case -1: str+=""; break;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}*/</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">return str;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//--&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;style type="text/css"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;!--</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">#mainTable{</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">font-size: 19px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">font-family: 'Times New Roman', serif;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">text-align: center;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">vertical-align: middle;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">width: 410px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">margin-left: auto;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">margin-right: auto;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">border-collapse: separate;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">border-spacing: 10px 5px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">#leftField{</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">width: 120px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">height: 150px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">border: 1px solid #000;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">cursor: pointer;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">#rightField{</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">width: 120px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">height: 150px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">border: 1px solid #000;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">cursor: pointer;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">.middleField{</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">width: 120px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">height: 70px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">border: 1px solid #000;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">cursor: pointer;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">a{</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">color: #e097d9;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">text-decoration : none;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">a:hover{</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">color: #8f8f8f;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">body {</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">width: 600px;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">margin: 0 auto;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">font-family: 'Times New Roman', erif;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">--&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --&gt;&lt;!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --&gt;&lt;!-- Read more: http://ogp.me/ --&gt;&lt;meta property="fb:app_id" content="48119224995" /&gt;&lt;meta property="og:site_name" content="" /&gt;&lt;meta property="og:title" content="Not Found" /&gt;&lt;meta property="og:url" content="" /&gt;&lt;meta property="og:description" content="The URL you requested could not be found." /&gt;&lt;meta property="og:determiner" content="a" /&gt;&lt;meta property="og:type" content="tumblr-feed:entry" /&gt;&lt;meta property="og:image" content="http://assets.tumblr.com/images/og/text_200.png" /&gt;&lt;!-- END TUMBLR FACEBOOK OPENGRAPH TAGS --&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;!-- TWITTER TAGS --&gt;&lt;meta charset="utf-8"&gt;&lt;meta name="twitter:card" content="summary" /&gt;&lt;meta name="twitter:description" content="The URL you requested could not be found." /&gt;&lt;meta name="twitter:title" content="Not Found" /&gt;&lt;meta name="twitter:url" content="" /&gt;&lt;meta name="twitter:site" content="tumblr" /&gt;&lt;meta name="twitter:app:name:iphone" content="Tumblr" /&gt;&lt;meta name="twitter:app:name:ipad" content="Tumblr" /&gt;&lt;meta name="twitter:app:name:googleplay" content="Tumblr" /&gt;&lt;meta name="twitter:app:id:iphone" content="305343404" /&gt;&lt;meta name="twitter:app:id:ipad" content="305343404" /&gt;&lt;meta name="twitter:app:id:googleplay" content="com.tumblr" /&gt;&lt;meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=roosterteethcs&amp;amp;postID=&amp;amp;referrer=twitter-cards" /&gt;&lt;meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=roosterteethcs&amp;amp;postID=&amp;amp;referrer=twitter-cards" /&gt;&lt;meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=roosterteethcs&amp;amp;postID=&amp;amp;referrer=twitter-cards" /&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;script src="http://assets.tumblr.com/assets/scripts/tumblelog.js?_v=a9e2d0b0ade5958a1a2a936adf448061"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;meta http-equiv="x-dns-prefetch-control" content="off"/&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;link href='http://fonts.googleapis.com/css?family=Josefin+Slab:600' rel='stylesheet' type='text/css'&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;body text="#000000" bgcolor="#ffffff" link="#e097d9" vlink="#e097d9" alink="#79a2c9"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;p class="instructions"&gt;</p>
+<p class="p1">&lt;center&gt;&lt;br /&gt;&lt;br /&gt;</p>
+<p class="p1">&lt;b&gt;NIJISANJI EN&lt;/b&gt;&lt;br /&gt;&lt;br&gt;for me ka&lt;br /&gt;&lt;br /&gt;&lt;/center&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;table id="mainTable" align="center"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;tbody&gt;&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"&gt;&lt;b&gt;battle #1&lt;br&gt;0% sorted.&lt;/b&gt;&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;td id="leftField" onclick="if(finishFlag==0) sortList(-1);" rowspan="2" style="text-align:center;"&gt;&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;td class="middleField" onclick="if(finishFlag==0) sortList(0);" style="text-align:center;"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">I like both</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;td id="rightField" onclick="if(finishFlag==0) sortList(1);" rowspan="2"style="text-align:center;"&gt;&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;td class="middleField" onclick="if(finishFlag==0) sortList(0);"style="text-align:center;"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">no opinion</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/tbody&gt;&lt;/table&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;div id="resultField" style="text-align: center;"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;script type="text/javascript"&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;!--</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">initList();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">showImage();</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">//--&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;p class="other"&gt;</p>
+<p class="p1">&lt;center&gt;&lt;small&gt;&lt;br /&gt;&lt;br /&gt;used with permission.&lt;br /&gt;&lt;br/&gt;&lt;a href="http://biasorter.tumblr.com/"&gt;created by biasorter&lt;/a&gt;.</p>
+<p class="p1">&lt;/small&gt;&lt;/center&gt;&lt;/small&gt;</p>
+<p class="p1">&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;!-- BEGIN TUMBLR CODE --&gt;&lt;iframe id="tumblr_controls" width="1" height="1" frameborder="0" scrolling="no" style="position:absolute; z-index:2147483647; top:0; right:0; border:0; background-color:transparent; overflow:hidden; " src="http://assets.tumblr.com/assets/html/iframe/o.html?_v=dddebe193046ef922006b33d60687b05#src=http%3A%2F%2Froosterteethcs.tumblr.com%2Fask&amp;amp;lang=en_US&amp;amp;name=roosterteethcs&amp;amp;avatar=http%3A%2F%2Fassets.tumblr.com%2Fimages%2Fdefault_avatar%2Fpyramid_open_64.png&amp;amp;title=rt+character+sorter&amp;amp;url=http%3A%2F%2Froosterteethcs.tumblr.com%2F&amp;amp;page_slide=slide"&gt;&lt;/iframe&gt;&lt;div id="teaser_iframe_container" style="display:none;"&gt;&lt;iframe scrolling="no" frameborder="0" src="http://www.tumblr.com/assets/html/iframe/teaser.html?_v=0334cdd0135fa4ea13587cd37c2dcf98#src=http%3A%2F%2Froosterteethcs.tumblr.com%2Fask&amp;amp;lang=en_US&amp;amp;name=roosterteethcs&amp;amp;avatar=http%3A%2F%2Fassets.tumblr.com%2Fimages%2Fdefault_avatar%2Fpyramid_open_64.png&amp;amp;title=rt+character+sorter&amp;amp;url=http%3A%2F%2Froosterteethcs.tumblr.com%2F&amp;amp;page_slide=slide" id="teaser_iframe" width="1" height="1"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;!--[if IE]&gt;&lt;script type="text/javascript"&gt;document.getElementById('tumblr_controls').allowTransparency=true;&lt;/script&gt;&lt;![endif]--&gt;&lt;iframe onload="javascript:this.contentWindow.postMessage(['tick_google_analytics', '/ask?route=404_page'].join(';'), this.src.split('/analytics.html')[0]);<span class="Apple-converted-space">  </span>COMSCORE = true;this.contentWindow.postMessage('enable_comscore;' + window.location, this.src.split('/analytics.html')[0]);" src="http://assets.tumblr.com/analytics.html?9bbb9e7732da937858cd0531689c20b1" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"&gt;&lt;/iframe&gt;&lt;script type="text/javascript"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var _qevents = _qevents || [];</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>(function() {</p>
+<p class="p1"><span class="Apple-converted-space">       </span>var elem = document.createElement('script');</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">       </span>elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";</p>
+<p class="p1"><span class="Apple-converted-space">       </span>elem.async = true;</p>
+<p class="p1"><span class="Apple-converted-space">       </span>elem.type = "text/javascript";</p>
+<p class="p1"><span class="Apple-converted-space">       </span>var scpt = document.getElementsByTagName('script')[0];</p>
+<p class="p1"><span class="Apple-converted-space">       </span>scpt.parentNode.insertBefore(elem, scpt);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>})();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;&lt;script type="text/javascript"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>_qevents.push( { qacct: 'p-19UtqE8ngoZbM' } );</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;&lt;noscript&gt;&lt;div style="display: none;"&gt;&lt;img src="//pixel.quantserve.com/pixel/'p-19UtqE8ngoZbM'.gif" height="1" width="1" alt="Quantcast"/&gt;&lt;/div&gt;&lt;/noscript&gt;&lt;script type="text/javascript"&gt;!function(s){s.src='http://www.tumblr.com/impixu?T=1389854658&amp;J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvcm9vc3RlcnRlZXRoY3MudHVtYmxyLmNvbVwvYXNrIiwicmVxdHlwZSI6MCwicm91dGUiOiI0MDRfcGFnZSJ9&amp;U=GJPMNFPHIN&amp;K=745811f0e9615242e744b26218c2e56a6c6b184a1315e6c9e9e871a0c242e3ab&amp;R=http%3A%2F%2Froosterteethcs.tumblr.com%2F'.replace(/&amp;R=[^&amp;$]*/,'').concat('&amp;R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());&lt;/script&gt;&lt;noscript&gt;&lt;img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1389854658&amp;J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvcm9vc3RlcnRlZXRoY3MudHVtYmxyLmNvbVwvYXNrIiwicmVxdHlwZSI6MCwicm91dGUiOiI0MDRfcGFnZSIsIm5vc2NyaXB0IjoxfQ==&amp;U=GJPMNFPHIN&amp;K=c7a8ec33be24dcae3b08d0ffc26af0508ef65362a18101b8963123d054b7f79e&amp;R=http%3A%2F%2Froosterteethcs.tumblr.com%2F"&gt;&lt;/noscript&gt;&lt;script type="text/javascript" src="http://l.yimg.com/ss/rapid-3.9.js"&gt;&lt;/script&gt;&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>(function(YAHOO) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (YAHOO) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>YAHOO.i13n.beacon_server = 'nol.yahoo.com';</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>var keys = { pd:'404_page', _li:0, i_rad:0, i_strm:0 };</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>YAHOO.rapid = new YAHOO.i13n.Rapid({spaceid:1197719233, oo:1, client_only:1, yql_enabled:false, keys:keys});</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>})(window.YAHOO);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/script&gt;&lt;!-- END TUMBLR CODE --&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
